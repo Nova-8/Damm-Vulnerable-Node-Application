@@ -1,26 +1,29 @@
 name: Checkmarx DAST
+
+on: [push]
+
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v3
-        - name: Checkmarx DAST Github Action
-          uses: Checkmarx/dast-github-action@v1.0.0-beta
-          with:
-            CX_APIKEY: "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3MjliOTc0NC05ZTYxLTQ5MjItOTkyYi1kMjQzNTI1ZGViNzIifQ.eyJpYXQiOjE2ODM5MTczNzgsImp0aSI6ImE1M2FmODliLWQ5NjItNDA0ZS1iNzUyLTE2ZTVkNTY4MmJhMiIsImlzcyI6Imh0dHBzOi8vZXUuaWFtLmNoZWNrbWFyeC5uZXQvYXV0aC9yZWFsbXMvYmV0YV9ub3ZhOCIsImF1ZCI6Imh0dHBzOi8vZXUuaWFtLmNoZWNrbWFyeC5uZXQvYXV0aC9yZWFsbXMvYmV0YV9ub3ZhOCIsInN1YiI6IjJkYzA1NWMyLWY5ZmQtNGFjZi05MGY1LTI0ZWUwODk0NWY5YSIsInR5cCI6Ik9mZmxpbmUiLCJhenAiOiJhc3QtYXBwIiwic2Vzc2lvbl9zdGF0ZSI6IjUwM2U2NGYyLWQyNTEtNDY1OC1iODI1LTVhZjhmYjIzZDhiNiIsInNjb3BlIjoiIG9mZmxpbmVfYWNjZXNzIiwic2lkIjoiNTAzZTY0ZjItZDI1MS00NjU4LWI4MjUtNWFmOGZiMjNkOGI2In0.Sbrt3uq-p53UNaWlCIMkZ6EDVbhmRuewo190L2ym7Es"
-            command: api
-            config: zap_api_config.yaml
-            base_url: localhost.cxast.net
-            environment_id: c608a51a-ec4e-4eef-81c4-a0241737efd7
-            openapi: swagger.yaml
-            project_id: fd093dde-b64a-466f-b2cd-8bf141b4db94
-            fail_on: HIGH
-            verbose: true
-            
-        - name: Upload Logs
-          uses: actions/upload-artifact@v3
-          with:
-            name: report
-            path: ./output
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Checkmarx DAST Github Action
+        uses: Checkmarx/dast-github-action@v1.0.0-beta
+        with:
+          CX_APIKEY: "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3MjliOTc0NC05ZTYxLTQ5MjItOTkyYi1kMjQzNTI1ZGViNzIifQ.eyJpYXQiOjE2ODM5MTczNzgsImp0aSI6ImE1M2FmODliLWQ5NjItNDA0ZS1iNzUyLTE2ZTVkNTY4MmJhMiIsImlzcyI6Imh0dHBzOi8vZXUuaWFtLmNoZWNrbWFyeC5uZXQvYXV0aC9yZWFsbXMvYmV0YV9ub3ZhOCIsImF1ZCI6Imh0dHBzOi8vZXUuaWFtLmNoZWNrbWFyeC5uZXQvYXV0aC9yZWFsbXMvYmV0YV9ub3ZhOCIsInN1YiI6IjJkYzA1NWMyLWY5ZmQtNGFjZi05MGY1LTI0ZWUwODk0NWY5YSIsInR5cCI6Ik9mZmxpbmUiLCJhenAiOiJhc3QtYXBwIiwic2Vzc2lvbl9zdGF0ZSI6IjUwM2U2NGYyLWQyNTEtNDY1OC1iODI1LTVhZjhmYjIzZDhiNiIsInNjb3BlIjoiIG9mZmxpbmVfYWNjZXNzIiwic2lkIjoiNTAzZTY0ZjItZDI1MS00NjU4LWI4MjUtNWFmOGZiMjNkOGI2In0.Sbrt3uq-p53UNaWlCIMkZ6EDVbhmRuewo190L2ym7Es"
+          command: api
+          config: zap_api_config.yaml
+          base_url: localhost.cxast.net
+          environment_id: c608a51a-ec4e-4eef-81c4-a0241737efd7
+          openapi: swagger.yaml
+          project_id: fd093dde-b64a-466f-b2cd-8bf141b4db94
+          fail_on: HIGH
+          verbose: true
+
+      - name: Upload Logs
+        uses: actions/upload-artifact@v3
+        with:
+          name: report
+          path: ./output
