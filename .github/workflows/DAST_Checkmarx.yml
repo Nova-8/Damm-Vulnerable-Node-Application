@@ -15,7 +15,7 @@ jobs:
           CX_APIKEY: ${{ secrets.CX_ONE_API_KEY }}
         with:
           command: "web"
-          config: 'zap_api_config.yaml'
+          config: 'webg.yaml'
           base_url: https://eu.ast.checkmarx.net/
           environment_id: "8ac9c726-7353-40c3-9515-3b7d86dc494f"
           verbose: true
