@@ -13,13 +13,10 @@ jobs:
         uses: Checkmarx/dast-github-action@v1.0.0-beta
         with:
           CX_APIKEY: ${{ secrets.CX_ONE_API_KEY }}
-          command: api
-          config: zap_api_config.yaml
-          base_url: localhost.cxast.net
-          environment_id: c608a51a-ec4e-4eef-81c4-a0241737efd7
-          openapi: swagger.yaml
-          project_id: fd093dde-b64a-466f-b2cd-8bf141b4db94
-          fail_on: HIGH
+          command: "web"
+          config: 'zap_api_config.yaml'
+          base_url: https://eu.ast.checkmarx.net/
+          environment_id: "8ac9c726-7353-40c3-9515-3b7d86dc494f"
           verbose: true
 
       - name: Upload Logs
