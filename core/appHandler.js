@@ -21,6 +21,13 @@ module.exports.userSearch = function (req, res) {
 			res.render('app/usersearch', {
 				output: output
 			})
+
+			res.render('app/usersearch', {
+				output: output
+			})
+			res.render('app/usersearch', {
+				output: output
+			})
 		} else {
 			req.flash('warning', 'User not found')
 			res.render('app/usersearch', {
