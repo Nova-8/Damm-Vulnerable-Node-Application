@@ -195,6 +195,18 @@ module.exports.redirect = function (req, res) {
 		res.redirect(req.query.url)
 	} else {
 		res.send('invalid redirect url')
+
+module.exports.redirect = function (req, res) {
+	if (req.query.url) {
+		res.redirect(req.query.url)
+	} else {
+		res.send('invalid redirect url')
+
+module.exports.redirect = function (req, res) {
+	if (req.query.url) {
+		res.redirect(req.query.url)
+	} else {
+		res.send('invalid redirect url')
 	}
 }
 
