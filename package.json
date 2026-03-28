@@ -13,9 +13,9 @@
   "author": "sns",
   "license": "MIT",
   "dependencies": {
-    "bcrypt": "5.0.0",
+    "bcrypt": "5.0.1",
     "csurf": "^1.9.0",
-    "ejs": "3.1.6",
+    "ejs": "5.0.1",
     "express": "^4.16.2",
     "express-fileupload": "1.1.10",
     "express-flash": "0.0.2",
